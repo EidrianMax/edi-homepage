@@ -1,0 +1,93 @@
+---
+import ContactForm from '../components/ContactForm.astro'
+import Container from '../components/Container.astro'
+---
+
+<section>
+  <Container>
+    <div class="wrapper">
+      <p class="question">Unhappy with your website?</p>
+      <h1>We create beautiful and fast web services</h1>
+    </div>
+
+    <img src="/images/heroImage.jpg" alt="Somebody teaching" />
+
+    <div class="wrapper">
+      <h2>Story, emotion and purpose</h2>
+      <p class="description">
+        We help transform your ideas into real world applications that will
+        outperform your toughest competition and help you achieve your strategic
+        goals in short period of time.
+      </p>
+
+      <ContactForm />
+    </div>
+  </Container>
+</section>
+
+<style>
+  section {
+    margin-bottom: 8rem;
+  }
+
+  .wrapper {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .question {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #2d9cdb;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-wrap: balance;
+    color: var(--black-02);
+    margin-bottom: 1rem;
+  }
+
+  img {
+    border-radius: 1.125rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-wrap: balance;
+    color: var(--black-02);
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .question {
+      font-size: 1.125rem;
+    }
+
+    .wrapper {
+      width: 60%;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    .description {
+      font-size: 1.125rem;
+    }
+  }
+</style>

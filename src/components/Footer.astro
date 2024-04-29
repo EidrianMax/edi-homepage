@@ -1,0 +1,148 @@
+---
+import ContactForm from './ContactForm.astro'
+import Container from './Container.astro'
+import Logo from './Logo.astro'
+
+import Instagram from '../icons/Instagram.astro'
+import LinkedIn from '../icons/LinkedIn.astro'
+import Twitter from '../icons/Twitter.astro'
+---
+
+<footer>
+  <Container isTablet isDesktop>
+    <div class="wrapper">
+      <ul class="index">
+        <li>
+          <a href="#top">Home</a>
+        </li>
+        <li>
+          <a href="#services">Services</a>
+        </li>
+        <li>
+          <a href="#our-works">Our Works</a>
+        </li>
+        <li>
+          <a href="#team">Team</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+
+      <div id="contact">
+        <Logo color="white" />
+
+        <nav class="social-icons">
+          <a href="#" target="_blank" rel="noreferer">
+            <Instagram class="icon" />
+          </a>
+          <a href="#" target="_blank" rel="noreferer">
+            <LinkedIn class="icon" />
+          </a>
+          <a href="#" target="_blank" rel="noreferer">
+            <Twitter class="icon" />
+          </a>
+        </nav>
+      </div>
+
+      <ContactForm />
+    </div>
+
+    <address>
+      created by
+      <a
+        class="username-link"
+        href="https://legacy.devchallenges.io/portfolio/EidrianMax"
+        target="_blank"
+        rel="noreferrer"
+      >
+        EidrianMax
+      </a>
+      -
+      <a
+        class="oficial-page"
+        href="https://devchallenges.io/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        devChallenges.io
+      </a>
+    </address>
+  </Container>
+</footer>
+
+<style>
+  footer {
+    padding-block: 3rem 1rem;
+    background-color: #100e1d;
+    color: white;
+  }
+
+  .index {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .index a {
+    text-decoration: none;
+    color: white;
+    transition: 0.25s all ease-in-out;
+  }
+
+  .index a:hover {
+    opacity: 0.7;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .social-icons > * {
+    flex-basis: 30px;
+  }
+
+  .social-icons a {
+    color: white;
+  }
+
+  .icon {
+    transition: 0.25s all ease-in-out;
+  }
+
+  .icon:hover {
+    opacity: 0.8;
+  }
+
+  address {
+    font-style: normal;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+
+  address .username-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+  }
+
+  address .oficial-page {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 6rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>

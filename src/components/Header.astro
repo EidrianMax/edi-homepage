@@ -1,0 +1,147 @@
+---
+import '@fontsource/heebo/800.css'
+import Logo from './Logo.astro'
+import Container from './Container.astro'
+
+import { variables } from '../variables'
+const { black } = variables.colors
+
+const { class: className } = Astro.props
+---
+
+<header class={className}>
+  <Container isTablet isDesktop>
+    <div class="wrapper">
+      <Logo />
+
+      <button>
+        <svg
+          class="menuSvg"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
+        >
+          <path
+            d="M160-240q-17 0-28.5-11.5T120-280q0-17 11.5-28.5T160-320h640q17 0 28.5 11.5T840-280q0 17-11.5 28.5T800-240H160Zm0-200q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h640q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H160Zm0-200q-17 0-28.5-11.5T120-680q0-17 11.5-28.5T160-720h640q17 0 28.5 11.5T840-680q0 17-11.5 28.5T800-640H160Z"
+          >
+          </path>
+        </svg>
+
+        <svg
+          class="xSvg hide"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
+          ><path
+            d="M480-424 284-228q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536-480l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-424Z"
+          ></path></svg
+        >
+      </button>
+
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#our-works">Our Works</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </Container>
+</header>
+
+<style define:vars={{ black }}>
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  button svg {
+    fill: var(--black);
+  }
+
+  nav {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    background-color: rgba(228, 228, 228, 0.9);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: none;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+
+  @media screen and (min-width: 1024px) {
+    nav {
+      display: block;
+      position: static;
+      padding: 0;
+      width: auto;
+      background-color: transparent;
+    }
+
+    nav ul {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      font-size: 1.25rem;
+    }
+
+    button {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const btnMenu = document.querySelector('button')
+  const nav = document.querySelector('nav')
+
+  const menuSvg = document.querySelector('.menuSvg')
+  const xSvg = document.querySelector('.xSvg')
+
+  btnMenu.addEventListener('click', () => {
+    nav.classList.toggle('show')
+    menuSvg.classList.toggle('hide')
+    xSvg.classList.toggle('hide')
+  })
+</script>

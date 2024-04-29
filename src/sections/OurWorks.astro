@@ -1,0 +1,130 @@
+---
+import Container from '../components/Container.astro'
+
+const works = [
+  {
+    img: '/images/smarthome.jpg',
+    type: 'Full stack application',
+    name: 'Smart home dashboard',
+  },
+  {
+    img: '/images/onboard.png',
+    type: 'UX/UI design',
+    name: 'Onboard application',
+  },
+  {
+    img: '/images/booking.png',
+    type: 'Mobile application',
+    name: 'Booking system',
+  },
+  {
+    img: '/images/juice-product.png',
+    type: 'Front End application',
+    name: 'Juice product homepage',
+  },
+]
+---
+
+<section id="our-works">
+  <Container isTablet isDesktop>
+    <h2>Good design means good business</h2>
+
+    <ul>
+      {
+        works.map(({ img, type, name }) => (
+          <li>
+            <article>
+              <img src={img} alt={name} loading="lazy" />
+              <p>{type}</p>
+              <h4>{name}</h4>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a href="#">see more <span>➞</span></a>
+  </Container>
+</section>
+
+<style>
+  section {
+    margin-bottom: 6rem;
+  }
+
+  h2 {
+    width: 80%;
+    margin-inline: auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-block-end: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+    gap: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  article img {
+    aspect-ratio: 1 / 1;
+    border-radius: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  article p {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: #828282;
+  }
+
+  article h4 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #333333;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #2d9cdb;
+  }
+
+  a span {
+    vertical-align: middle;
+  }
+
+  @media screen and (min-width: 1024px) {
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 500;
+      max-width: 450px;
+      margin-inline: 0;
+      margin-bottom: 8rem;
+    }
+
+    ul li:nth-child(even) {
+      transform: translateY(-20%);
+    }
+
+    article p {
+      font-size: 1.125rem;
+    }
+
+    article h4 {
+      font-size: 1.5rem;
+    }
+
+    a {
+      font-size: 1.5rem;
+      display: block;
+      text-align: right;
+    }
+  }
+</style>

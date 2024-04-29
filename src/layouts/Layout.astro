@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+import '@fontsource/poppins'
+import '@fontsource/poppins/500.css'
+
+interface Props {
+  title: string
+}
+
+import { variables } from '../variables'
+const { colors, font } = variables
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header class="header" />
+    <slot />
+    <Footer />
+  </body>
+</html>
+<style is:global define:vars={{ black: colors.black, font }}>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--black);
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  .header {
+    padding-block: 1rem 2.5rem;
+  }
+</style>

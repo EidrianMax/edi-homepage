@@ -1,0 +1,138 @@
+---
+import Stylus from '../icons/Stylus.astro'
+import Code from '../icons/Code.astro'
+import Dns from '../icons/Dns.astro'
+import Container from '../components/Container.astro'
+
+const services = [
+  {
+    title: 'UI/UX Design',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus nulla consequat aliquet id quis turpis.',
+    icon: Stylus,
+    color: '#2D9CDB',
+  },
+  {
+    title: 'Front End',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus nulla consequat aliquet id quis turpis.',
+    icon: Code,
+    color: '#27AE60',
+  },
+  {
+    title: 'Back End',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus nulla consequat aliquet id quis turpis.',
+    icon: Dns,
+    color: '#EB5757',
+  },
+]
+---
+
+<section id="services">
+  <Container isTablet isDesktop>
+    <h2>We offer high demand services</h2>
+
+    <ul>
+      {
+        services.map(({ title, description, icon: Icon, color }) => (
+          <li>
+            <article>
+              <div class="icon-box" style={{ backgroundColor: color }}>
+                <Icon />
+              </div>
+
+              <h4>{title}</h4>
+
+              <p>{description}</p>
+
+              <button>Get started</button>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</section>
+
+<style>
+  section {
+    margin-bottom: 8rem;
+  }
+
+  h2 {
+    width: 80%;
+    margin-inline: auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-block-end: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  ul li:nth-child(even) article {
+    box-shadow: 0px 10px 30px 0px #3333331a;
+  }
+
+  article {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    display: grid;
+    justify-items: start;
+    gap: 1.5rem;
+  }
+
+  article .icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: blue;
+    border-radius: 1.5rem;
+    display: grid;
+    place-items: center;
+    color: white;
+  }
+
+  article .icon-box svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  article h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  article button {
+    font: inherit;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.75rem;
+    background-color: #e0e0e0;
+    color: #828282;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  ul li:nth-child(even) article button {
+    background-color: #2d9cdb;
+    color: #ffffff;
+  }
+
+  @media screen and (min-width: 1024px) {
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 500;
+      max-width: 450px;
+      margin-inline: 0;
+      margin-bottom: 8rem;
+    }
+  }
+</style>

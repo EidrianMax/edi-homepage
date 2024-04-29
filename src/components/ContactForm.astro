@@ -1,0 +1,58 @@
+<form>
+  <label for="email">Want us to contact you?</label>
+  <div class="input-button-fusion">
+    <input id="email" type="text" placeholder="Email" />
+    <button>Join</button>
+  </div>
+</form>
+
+<style>
+  label {
+    font-size: 0.625rem;
+    font-weight: 500;
+    display: block;
+    color: #828282;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-button-fusion {
+    position: relative;
+  }
+
+  .input-button-fusion input {
+    appearance: none;
+    border: 0;
+    font: inherit;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: block;
+    width: 100%;
+  }
+
+  .input-button-fusion button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80%;
+    border: 0;
+    background-color: #2d9cdb;
+    border-radius: 1rem;
+    padding: 1rem;
+    font: inherit;
+    color: #f2f2f2;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1024px) {
+    label {
+      font-size: 0.875rem;
+    }
+
+    input::placeholder {
+      font-size: 1.125rem;
+    }
+  }
+</style>

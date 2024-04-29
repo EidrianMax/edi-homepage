@@ -1,0 +1,32 @@
+---
+interface Props {
+  isTablet?: boolean
+  isDesktop?: boolean
+}
+
+const { isTablet, isDesktop } = Astro.props
+---
+
+<div class:list={['container', { isTablet, isDesktop }]}>
+  <slot />
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding-inline: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .container.isTablet {
+      max-width: 768px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .container.isDesktop {
+      max-width: 1024px;
+    }
+  }
+</style>
